@@ -1,5 +1,8 @@
 import Head from 'next/head'
 
+// import the dashboard component
+import Dashboard from '../components/dashboard';
+
 export default function Home() {
   return (
     <div className="">
@@ -9,6 +12,8 @@ export default function Home() {
         <title>Spotify - Dashboard</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
+
+      <Dashboard />
 
     </div>
   )
