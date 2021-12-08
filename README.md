@@ -10,7 +10,7 @@
 
 2. Project Overview:
 
-    - 
+    - One Limitation of spotify API is that it only works for spotify users having premium memberships.
 
 3. Imp Links:
 
@@ -57,3 +57,22 @@
         2. import this globals.css file into the _app.js file
 
         3. create your utility classes in globals.css
+
+    - Breakpoints in tailwindcss for adding responsiveness:
+
+        - https://tailwindcss.com/docs/breakpoints
+
+        - Always remember, default styling in tailwindcss is always mobile responsive first, and then breakpoints are added to make it 
+        responsive for bigger screens. 💥💥💥💥💥
+    
+    - @tailwindcss/forms:
+
+        - https://github.com/tailwindlabs/tailwindcss-forms
+    
+    - tailwind-scrollbar:
+
+        - https://www.npmjs.com/package/tailwind-scrollbar
+    
+    - tailwind-scrollbar-hide
+
+        - https://www.npmjs.com/package/tailwind-scrollbar-hide
