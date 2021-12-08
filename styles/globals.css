@@ -1,0 +1,13 @@
+/* creating custom classes in tailwind css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* apply styling on the component level */
+@layer components {
+
+    /* custom class named "sidebarIcon" */
+    .sidebarIcon {
+        @apply h-6 text-[#808080] cursor-pointer;
+    }
+}
