@@ -17,3 +17,11 @@
     - https://tailwindcss.com/docs/guides/nextjs
 
     - https://nextjs.org/
+
+    - Read about dynamic "built-in" routing in next.js
+
+    - In next.js, any file inside the pages folder is a website page.
+
+    - In next.js any file inside the api folder is all the back-end code.
+
+    - Read about "built-in" server in next.js
