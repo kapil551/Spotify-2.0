@@ -1,8 +1,15 @@
+// import the search component
+import Search from "./search";
+
 function Body() {
     return (
-        <div>
-            Dashboard body
-        </div>
+        <section>
+            
+            {/* Searchbar component */}
+            <Search />
+
+
+        </section>
     )
 }
 
