@@ -15,7 +15,7 @@ function Body() {
 
     // useState hook
     const [search, setSearch] = useState("");
-    const [searchResults, getSearchResults] = useState([]); // searchResults will be an array of search results
+    const [searchResults, setSearchResults] = useState([]); // searchResults will be an array of search results
     const [newReleases, setNewReleases] = useState([]); // newReleases will be an array of new releases
 
     // useSession
@@ -26,13 +26,13 @@ function Body() {
     const { accessToken } = session;
     console.log("accessToken", accessToken);
 
-    // useEffect() hook
+    // useEffect() hook -- > checking access token
     useEffect(
 
         () => {
             console.log("checking access token");
             // "SIDE EFFECT WORK"
-            
+
             if(!accessToken) {
                 return;
             }
@@ -43,8 +43,85 @@ function Body() {
         }, [accessToken]
     );
 
+    // Searching... based on search input in the searchbar
+    useEffect(
 
+        () => {
 
+            if(!search) {
+                return;
+            }
+            if(!accessToken) {
+                return;
+            }
+
+            let cancelSearch = false;
+
+            spotifyApi.searchTracks(search).then((tracksFetchedFromAPI) => {
+
+                // console.log(tracksFetchedFromAPI);
+
+                // update the searchResults state variable
+                setSearchResults(
+                    tracksFetchedFromAPI.body.tracks.items.map((track) => {
+                        return {
+
+                            id: track.id,
+                            artist: track.artists[0].name,
+                            title: track.name,
+                            uri: track.uri,
+                            albumUrl: track.album.images[0].url,
+                            popularity: track.popularity,
+
+                        }
+                    })
+                )
+                
+
+            }).catch((err) => {
+                console.log(err);
+            });
+
+            return () => {
+                cancelSearch = true;
+            }
+        
+        }, [search, accessToken] // --> recall this useState whenever only the values of "search" and "accessToken" updates
+    );
+
+    // new realeases --> get the new relased songs from spotify API
+    useEffect(
+        
+        () => {
+
+            if(!accessToken) {
+                return;
+            }
+
+            spotifyApi.getNewReleases().then((newReleasedTracksDataFromAPI) => {
+
+                // console.log(newReleasedTracksDataFromAPI);
+
+                // update the newReleases state variable
+                setNewReleases(
+                    newReleasedTracksDataFromAPI.body.albums.items.map((track) => {
+                        return {
+                            id: track.id,
+                            artist: track.artists[0].name,
+                            title: track.name,
+                            uri: track.uri,
+                            albumUrl: track.images[0].url,
+                        }
+                    })
+                )
+
+            }).catch((err) =>{
+                console.log(err);
+            });
+
+        
+        }, [accessToken] // --> recall this useState whenever only the value of "accessToken" updates
+    );
 
     console.log("newReleases", newReleases);
     console.log("search:", search);
@@ -80,16 +157,35 @@ function Body() {
             */}
 
             <div className="border-2 border-green-500 h-96 p-4 grid grid-cols-2 gap-x-4 gap-y-8 overflow-y-scroll scrollbar-hide lg:grid-cols-3 xl:grid-cols-4">
-                <Poster />
-                <Poster />
-                <Poster />
-                <Poster />
-                <Poster />
-                <Poster />
-                <Poster />
-                <Poster />
-                <Poster />
-                <Poster />
+
+                {/* Traverse on the searchResults and show the search results to the user*/}
+                {/* If the searchResults is empty then by default show newReleases */}
+                {
+                    searchResults.length === 0 
+                      
+                    ? newReleases.map((track) => {
+
+                        return (
+
+                            <Poster 
+                                key={track.id}
+                                track={track}
+                            />
+                        )
+                    })
+
+                    : searchResults.map((track) => {
+                        return (
+
+                            <Poster 
+                                key={track.id}
+                                track={track}
+                            />
+                        )
+                    })
+
+                }
+
             </div>
 
 
