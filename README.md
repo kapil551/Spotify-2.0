@@ -80,3 +80,7 @@
     - useState() hook in react:
 
         - https://reactjs.org/docs/hooks-state.html
+    
+    - custom google fonts:
+
+        - https://fonts.google.com/

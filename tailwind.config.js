@@ -4,6 +4,10 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {},
+    fontFamily: {
+      body: ["Andada Pro", "serif"],
+      sans: ["ui-sans-serif", "system-ui"],
+    }
   },
   variants: {
     extend: {},
