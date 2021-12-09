@@ -26,7 +26,23 @@ function Body() {
             <Searchbar search={search} setSearch={setSearch} />
 
             {/* poster component */}
-            <div className=" border-2 border-green-500 h-96 p-4 ">
+            {/* 
+                1. Making a grid using tailwind css:
+
+                    - grid grid-cols-2 gap-x-4 gap-y-8
+
+
+                2. I also want to provide a scrollable functionality to the grid:
+
+                    - overflow-y-scroll scrollbar-hide
+
+                3. Adding breakpoints to make the grid responsive:
+
+                    - lg:grid-cols-3 xl:grid-cols-4
+
+            */}
+
+            <div className="border-2 border-green-500 h-96 p-4 grid grid-cols-2 gap-x-4 gap-y-8 overflow-y-scroll scrollbar-hide lg:grid-cols-3 xl:grid-cols-4">
                 <Poster />
                 <Poster />
                 <Poster />
