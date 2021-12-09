@@ -54,9 +54,12 @@ function Signin({ providers }) {
     )
 
     // if session is not null i.e there is a valid session, then show/return the Loader component
-    return (
-        <Loader />
-    )
+    if(session) {
+
+        return (
+            <Loader />
+        )
+    }
 
     return (
         <div className="h-screen flex flex-col items-center pt-40 space-y-8">
