@@ -8,6 +8,9 @@ import Poster from "./poster";
 // import useSession() hook
 import { useSession } from "next-auth/react";
 
+// import spotify API
+import spotifyApi from "../lib/spotify";
+
 function Body() {
 
     // useState hook
@@ -27,14 +30,19 @@ function Body() {
     useEffect(
 
         () => {
-
+            console.log("checking access token");
             // "SIDE EFFECT WORK"
+            
             if(!accessToken) {
                 return;
             }
+            else {
+                spotifyApi.setAccessToken(accessToken);
+            }
 
-        }, []
+        }, [accessToken]
     );
+
 
 
 
