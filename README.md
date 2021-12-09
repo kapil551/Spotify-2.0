@@ -123,3 +123,19 @@
     - creating custom login/signin page in NextAuth:
 
         - https://next-auth.js.org/configuration/pages
+    
+    - What are callbacks in NextAuth:
+
+        - https://next-auth.js.org/configuration/callbacks
+
+        - JWT Callback:
+
+            - https://next-auth.js.org/configuration/callbacks#jwt-callback
+        
+        - Session Callback:
+            
+            - https://next-auth.js.org/configuration/callbacks#session-callback
+        
+        - Refresh Access Token NextAuth: (💥💥💥💥💥)
+            
+            - https://next-auth.js.org/tutorials/refresh-token-rotation
