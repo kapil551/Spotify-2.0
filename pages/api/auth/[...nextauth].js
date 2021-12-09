@@ -14,4 +14,10 @@ export default NextAuth({
       })
     // ...add more providers here
   ],
+  /*creating custom login/signin page in NextAuth:
+    https://next-auth.js.org/configuration/pages
+  */
+    pages: {
+        signIn: '/auth/signin',
+      },
 })
