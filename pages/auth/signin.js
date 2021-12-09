@@ -9,6 +9,9 @@ import { useRouter } from 'next/router';
 // import useEffect() hook
 import {useEffect } from 'react';
 
+// import the loader component
+import Loader from '../../components/loader';
+
         // access the server side providers
 function Signin({ providers }) {
 
@@ -50,6 +53,10 @@ function Signin({ providers }) {
 
     )
 
+    // if session is not null i.e there is a valid session, then show/return the Loader component
+    return (
+        <Loader />
+    )
 
     return (
         <div className="h-screen flex flex-col items-center pt-40 space-y-8">

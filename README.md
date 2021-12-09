@@ -147,3 +147,11 @@
     - useEffect() hook in react:
 
         - https://reactjs.org/docs/hooks-effect.html
+    
+    - better-react-spinkit:
+
+        - https://github.com/bentatum/better-react-spinkit
+
+        - https://www.npmjs.com/package/better-react-spinkit
+
+        - http://better-react-spinkit.benjamintatum.com/
