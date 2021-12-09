@@ -86,3 +86,30 @@
         - https://fonts.google.com/
 
     - Making a grid using tailwindcss
+
+    - NextAuth authentication:
+
+        - https://next-auth.js.org/
+
+        - Getting Started:
+
+            - https://next-auth.js.org/getting-started/upgrade-v4
+
+            - https://next-auth.js.org/getting-started/example
+
+        - NextAuth authentication for spotify api:
+
+            - https://next-auth.js.org/providers/spotify
+
+        - We need authentication because we need an access token and also check if the access token has expired
+
+        - If the access token has expired, then we need to refresh the expired access token with a valid refresh token.
+
+        - Having a valid access token, authenticates the use login, without a valid access token the user cannot access the 
+        website and it will always redirect that un-authenticated user to the login/signin page.
+
+        - Once the user login/signup using their spotify account, the user is authenitcated and gets a valid access token.
+
+    - What is .env.local file in react/next.js projects?
+
+        - 
