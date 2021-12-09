@@ -143,3 +143,7 @@
     - useRouter() hook in next.js:
 
         - https://nextjs.org/docs/api-reference/next/router
+    
+    - useEffect() hook in react:
+
+        - https://reactjs.org/docs/hooks-effect.html
