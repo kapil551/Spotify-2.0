@@ -139,3 +139,7 @@
         - Refresh Access Token NextAuth: (💥💥💥💥💥)
             
             - https://next-auth.js.org/tutorials/refresh-token-rotation
+        
+    - useRouter() hook in next.js:
+
+        - https://nextjs.org/docs/api-reference/next/router
