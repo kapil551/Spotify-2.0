@@ -2,11 +2,14 @@
 import { useState } from "react";
 // import the search component
 import Searchbar from "./searchbar";
+// import the Poster component
+import Poster from "./poster";
 
 function Body() {
 
     // useState hook
     const [search, setSearch] = useState("");
+    const [searchResults, getSearchResults] = useState([]); // searchResults will be an array of search results
 
     console.log("search:", search);
 
@@ -21,6 +24,20 @@ function Body() {
             {/* Searchbar component */}
             {/* passing information using props */}
             <Searchbar search={search} setSearch={setSearch} />
+
+            {/* poster component */}
+            <div className=" border-2 border-green-500 h-96 p-4 ">
+                <Poster />
+                <Poster />
+                <Poster />
+                <Poster />
+                <Poster />
+                <Poster />
+                <Poster />
+                <Poster />
+                <Poster />
+                <Poster />
+            </div>
 
 
         </section>

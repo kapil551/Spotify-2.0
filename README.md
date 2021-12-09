@@ -84,3 +84,5 @@
     - custom google fonts:
 
         - https://fonts.google.com/
+
+    - Making a grid using tailwindcss
