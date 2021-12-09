@@ -1,17 +1,46 @@
-// import useState
-import { useState } from "react";
+// import useState, useEffect
+import { useState, useEffect } from "react";
 // import the search component
 import Searchbar from "./searchbar";
 // import the Poster component
 import Poster from "./poster";
+
+// import useSession() hook
+import { useSession } from "next-auth/react";
 
 function Body() {
 
     // useState hook
     const [search, setSearch] = useState("");
     const [searchResults, getSearchResults] = useState([]); // searchResults will be an array of search results
+    const [newReleases, setNewReleases] = useState([]); // newReleases will be an array of new releases
 
+    // useSession
+    const { data: session, status } = useSession();
+    console.log(session, status);
+
+    // get the accessToken from the session object using destructuring
+    const { accessToken } = session;
+    console.log("accessToken", accessToken);
+
+    // useEffect() hook
+    useEffect(
+
+        () => {
+
+            // "SIDE EFFECT WORK"
+            if(!accessToken) {
+                return;
+            }
+
+        }, []
+    );
+
+
+
+    console.log("newReleases", newReleases);
     console.log("search:", search);
+    console.log("searchResults", searchResults);
 
     return (
 

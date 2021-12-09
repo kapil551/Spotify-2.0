@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 // import the dashboard component
 import Dashboard from '../components/dashboard';
 // import the loader component
-import Loader from '../components/loader';
+import LoaderAnimation from '../components/loaderAnimation';
 
 export default function Home() {
 
@@ -16,7 +16,7 @@ export default function Home() {
     required: true,
     // if the user is not "authenticated" then redirect/route to "/auth/signin" page 
     onUnauthenticated() {
-      
+
       // The user is not authenticated, handle it here.
       router.push("/auth/signin");
     }
@@ -26,7 +26,7 @@ export default function Home() {
 
   // Show the Loading animation --> if status is "Loading"
   if(status === "loading") {
-    return <Loader />
+    return <LoaderAnimation />
   }
 
   return (

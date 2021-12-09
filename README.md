@@ -148,10 +148,10 @@
 
         - https://reactjs.org/docs/hooks-effect.html
     
-    - better-react-spinkit:
+   - react-loader-spinner:
 
-        - https://github.com/bentatum/better-react-spinkit
+        - https://github.com/mhnpd/react-loader-spinner
 
-        - https://www.npmjs.com/package/better-react-spinkit
+        - https://www.npmjs.com/package/react-loader-spinner
 
-        - http://better-react-spinkit.benjamintatum.com/
+        - https://mhnpd.github.io/react-loader-spinner/

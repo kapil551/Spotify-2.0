@@ -10,7 +10,7 @@ import { useRouter } from 'next/router';
 import {useEffect } from 'react';
 
 // import the loader component
-import Loader from '../../components/loader';
+import LoaderAnimation from '../../components/loaderAnimation';
 
         // access the server side providers
 function Signin({ providers }) {
@@ -57,9 +57,13 @@ function Signin({ providers }) {
     if(session) {
 
         return (
-            <Loader />
+            <LoaderAnimation />
         )
     }
+    
+    // return (
+    //     <LoaderAnimation />
+    // )
 
     return (
         <div className="h-screen flex flex-col items-center pt-40 space-y-8">
