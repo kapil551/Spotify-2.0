@@ -35,15 +35,27 @@ function Searchbar({ search, setSearch }) {
 
             {/* For now these buttons are static and have no functionality */}
             {/* searchbar buttons */}
-            <div className="border-2 border-white flex items-center ml-auto text-[#CECECE]">
-                <button className="tag">Minimal</button>
-                <button className="tag">House</button>
-                <button className="tag">Minimal</button>
-            </div>
-            {/* searchbar filter button */}
-            <div className="border-2 border-white flex items-center space-x-1.5 text-[#CECECE] pl-4">
-                <MdOutlineShortText />
-                <span> Filters </span>
+            {/* divide style, divide width, divide color */}
+            <div className="flex items-center ml-auto divide-dotted divide-x-2 divide-[#333333]">
+                
+                {/* Trending Now, New Releases and Liked Songs buttons container */}
+                <div className="flex space-x-2 pr-5">
+
+                    {/* I am using the custom class created by me called "tag"  inside ../styles/globals.css*/}
+                    <button className="tag"> Trending Now </button>
+                    <button className="tag"> New Releases </button>
+                    <button className="tag"> Liked Songs </button>
+
+                </div>
+
+                {/* searchbar filter button */}
+                <div className="flex items-center space-x-1.5 text-[#CECECE] pl-4">
+
+                    <MdOutlineShortText className="text-2xl animate-pulse" />
+                    <span className="font-medium text-sm"> Filters </span>
+
+                </div>
+
             </div>
             
         </div>

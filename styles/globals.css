@@ -10,4 +10,9 @@
     .sidebarIcon {
         @apply h-6 text-[#808080] cursor-pointer;
     }
+
+    /* custom class named "tag" */
+    .tag {
+        @apply border-2 border-[#484848] py-1.5 px-3 bg-[#282828] rounded-xl text-[#cecece] text-xs font-bold;
+    }
 }
