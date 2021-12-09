@@ -113,3 +113,13 @@
     - What is .env.local file in react/next.js projects?
 
         - 
+    
+    - useSession() hook in NextAuth:
+
+        -
+
+        - 
+    
+    - creating custom login/signin page in NextAuth:
+
+        - https://next-auth.js.org/configuration/pages
