@@ -11,7 +11,7 @@ import { useState, useEffect } from "react";
 // import RecentlyPlayedTrack component
 import RecentlyPlayedTrack from "./recentlyPlayedTrack";
 // import Dropdown component
-import Dropdown from "./dropDown";
+import Dropdown from "./dropdown";
 // import playlist component
 import Playlist from "./playlist";
 
