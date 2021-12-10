@@ -10,6 +10,8 @@ import { useSession } from "next-auth/react";
 
 // import spotify API
 import spotifyApi from "../lib/spotify";
+// import the track component
+import Track from "./track";
 
 function Body() {
 
@@ -189,6 +191,60 @@ function Body() {
 
             </div>
 
+            {/* Genres and Tracks container */}
+            <div className="border-2 border-pink-600">
+
+                {/* Genres Container */}
+                <div className="border-2 border-purple-500">
+
+                    <h2 className="border-2 border-blue-500 text-white">Genres</h2>
+
+                    <div className="border-2 border-white text-white">
+
+                        {/* custom class named "genre" */}
+                        <div className="border-2 border-yellow-400 genre">Classic</div>
+                        <div className="border-2 border-yellow-400 genre">House</div>
+                        <div className="border-2 border-yellow-400 genre">Minimal</div>
+                        <div className="border-2 border-yellow-400 genre">Hip-hop</div>
+                        <div className="border-2 border-yellow-400 genre">Electronic</div>
+                        <div className="border-2 border-yellow-400 genre">Chillout</div>
+                        <div className="border-2 border-yellow-400 genre">Blues</div>
+                        <div className="border-2 border-yellow-400 genre">Country</div>
+                        <div className="border-2 border-yellow-400 genre">Techno</div>
+                    </div>
+
+                    <button className="border-2 border-purple-500 text-white"> All Genres </button>
+
+                </div>
+
+                {/* Tracks */}
+                <div>
+                    {
+                        searchResults.length === 0
+
+                        ? newReleases.map((track) => {
+
+                            return (
+                                <Track 
+                                    key={track.id}
+                                    track={track}
+                                />
+                            )
+                        })
+
+                        : searchResults.map((track) => {
+
+                            return (
+                                <Track
+                                    key={track.id}
+                                    track={track} 
+                                />
+                            )
+                        })
+                    }
+                </div>
+
+            </div>
 
         </section>
     )
