@@ -35,7 +35,7 @@ export default function Home() {
       {/* next.js head component */}
       <Head>
         <title>Spotify - Dashboard</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="https://cdn3.iconfinder.com/data/icons/popular-services-brands/512/spotify-512.png" />
       </Head>
 
       <Dashboard />

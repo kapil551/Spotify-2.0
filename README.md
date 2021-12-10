@@ -189,5 +189,11 @@
     - SignOut functionality in NextAuth:
 
         - https://next-auth.js.org/getting-started/client#signout
+    
+    - react-spotify-web-playback:
+
+        - adding custom player to the spotify clone
+
+        - https://github.com/gilbarbara/react-spotify-web-playback
 
 
