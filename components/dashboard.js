@@ -5,7 +5,7 @@ import RightSidebar from "./rightSidebar";
 function Dashboard() {
     return (
 
-        <main>
+        <main className="flex min-h-screen min-w-max bg-black lg:pb-24">
 
             {/* Left component -> sidebar */}
             <LeftSidebar />

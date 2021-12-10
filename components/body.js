@@ -24,8 +24,8 @@ function Body() {
     const { data: session, status } = useSession();
     console.log(session, status);
 
-    // get the accessToken from the session object using destructuring
-    const { accessToken } = session;
+    // get the accessToken from the session object using optional chaining
+    const accessToken = session?.accessToken;
     console.log("accessToken", accessToken);
 
     // useEffect() hook -- > checking access token

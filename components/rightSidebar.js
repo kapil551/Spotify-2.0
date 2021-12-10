@@ -1,6 +1,6 @@
 function RightSidebar() {
     return (
-        <div>
+        <div className="border-2 text-white">
             Right Sidebar
         </div>
     )

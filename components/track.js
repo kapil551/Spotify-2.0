@@ -3,15 +3,21 @@ import { ImHeadphones } from "react-icons/im";
 import { AiFillHeart } from "react-icons/ai";
 import { BsFillPlayFill, BsFillPauseFill } from "react-icons/bs";
 
-
 // import useRecoilState from recoil
 import { useRecoilState } from "recoil";
 
 // import playState, playingTrackState  from recoil atom
 import { playState, playingTrackState, currentSelectedTrack } from "../atoms/playerAtom";
 
+// import useState
+import { useState } from "react";
+
+
     // access props using destructuring 
 function Track({track}) {
+
+    // useState
+    const [hasLiked, setHasLiked] = useState(false);
 
     // Recoil Atoms
     // https://recoiljs.org/docs/introduction/getting-started#atom
@@ -57,12 +63,12 @@ function Track({track}) {
 
                <div>
                    <h4 className="text-white text-sm font-semibold truncate w-[28rem]"> {track.title} </h4>
-                   <p className="text-[rgb(179,179,179)] text-[13px] font-semibold group-hover:text-white"> {track.artist} </p>
+                   <p className="text-[rgb(179,179,179)] text-[0.8rem] font-semibold group-hover:text-white"> {track.artist} </p>
                </div>
 
            </div>
 
-           <div className="border-2 border-green-500 flex items-center space-x-2.5">
+           <div className="border-2 border-green-500 flex items-center space-x-2.5 md:ml-auto">
 
                <div className="text-white flex space-x-1 text-sm font-semibold">
                    <ImHeadphones />
@@ -72,7 +78,11 @@ function Track({track}) {
                <div className="border-2 border-[#262626] flex items-center rounded-full w-[5.3rem] h-10 relative
                                 cursor-pointer group-hover:border-white/40">
                    <AiFillHeart 
-                        className={``}
+                        /* using my custom class named "icon" */
+                        className={`text-xl ml-3 icon ${ hasLiked ?  "text-[#1ED760]" : "text-[#868686]"}`}
+                        onClick={() => {
+                            setHasLiked(!hasLiked);
+                        }}
                    />
 
                     {
