@@ -192,7 +192,7 @@ function Body() {
             </div>
 
             {/* Genres and Tracks container */}
-            <div className="border-2 border-pink-600 flex gap-x-8 ml-6 min-w-full absolute md:relative">
+            <div className="border-2 border-pink-600 flex gap-x-8 ml-6 min-w-full md:relative">
 
                 {/* Genres Container */}
                 <div className="border-2 border-purple-500 max-w-[16.9rem] hidden xl:inline">
