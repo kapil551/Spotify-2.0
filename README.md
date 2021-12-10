@@ -177,3 +177,17 @@
             - https://recoiljs.org/docs/introduction/getting-started#atom
             
             - https://recoiljs.org/docs/basic-tutorial/atoms
+    
+    - Headless UI:
+
+        - https://github.com/tailwindlabs/headlessui
+
+        - https://github.com/tailwindlabs/headlessui/tree/main/packages/%40headlessui-react
+
+        - https://headlessui.dev/
+    
+    - SignOut functionality in NextAuth:
+
+        - https://next-auth.js.org/getting-started/client#signout
+
+

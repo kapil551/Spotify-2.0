@@ -10,6 +10,8 @@ import { useState, useEffect } from "react";
 
 // import RecentlyPlayedTrack component
 import RecentlyPlayedTrack from "./recentlyPlayedTrack";
+// import Dropdown component
+import Dropdown from "./dropDown";
 
 function RightSidebar() {
 
@@ -72,7 +74,7 @@ function RightSidebar() {
                </div>
 
                 {/* Profile */}
-                {/* <Dropdown /> */}
+                <Dropdown />
 
            </div>
 

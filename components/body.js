@@ -166,7 +166,7 @@ function Body() {
                 {
                     searchResults.length === 0 
                       
-                    ? newReleases.map((track) => {
+                    ? newReleases.slice(0, 4).map((track) => {
 
                         return (
 
@@ -177,7 +177,7 @@ function Body() {
                         )
                     })
 
-                    : searchResults.map((track) => {
+                    : searchResults.slice(0, 4).map((track) => {
                         return (
 
                             <Poster 
@@ -235,7 +235,7 @@ function Body() {
                         {
                             searchResults.length === 0
 
-                            ? newReleases.map((track) => {
+                            ? newReleases.slice(4, newReleases.length).map((track) => {
 
                                 return (
                                     <Track 
@@ -245,7 +245,7 @@ function Body() {
                                 )
                             })
 
-                            : searchResults.map((track) => {
+                            : searchResults.slice(4, newReleases.length).map((track) => {
 
                                 return (
                                     <Track
