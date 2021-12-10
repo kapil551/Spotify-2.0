@@ -4,8 +4,44 @@
 // import icons from React Icons
 import { BsFillPauseFill, BsFillPlayFill } from "react-icons/bs";
 
+// import useRecoilState from recoil
+import { useRecoilState } from "recoil";
+
+// import playState, playingTrackState  from recoil atom
+import { playState, playingTrackState, currentSelectedTrack } from "../atoms/playerAtom"; 
+
     // accessing props using destructuring
 function Poster({track}) {
+
+    // Recoil Atoms
+    // https://recoiljs.org/docs/introduction/getting-started#atom
+    // https://recoiljs.org/docs/basic-tutorial/atoms
+    // useRecoilState() --> to update the contents of the "playState" atom
+    const [play, setPlay] = useRecoilState(playState);
+    // Now this "play" is stored in a global storage atom named "playState"
+    // Also now i can access the contents of this global storage atom inside any other component
+
+    const [playingTrack, setPlayingTrack] = useRecoilState(playingTrackState);
+    // Now this "playingTrack" is stored in a global storage atom named "playingTrackState"
+    // Also now i can access the contents of this global storage atom inside any other component
+
+    const handlePlayingTrack = () => {
+        
+        // console.log("handle playing track", play);
+        
+        // set the value of playing track to the track on which the user just clicked
+        setPlayingTrack(track);
+
+        console.log(track, playingTrack);
+        
+        // if the current track is the currently playing track 
+        if(track.uri === playingTrack.uri) {
+            
+            setPlay(!play);
+        }
+        
+    };
+
     return (
 
         /*
@@ -17,7 +53,8 @@ function Poster({track}) {
         */
         <div className="border-2 border-white h-[22.5rem] w-[16.25rem] rounded-[3rem] overflow-hidden 
                         text-white/80 cursor-pointer hover:scale-105 hover:text-white/100
-                        transition duration-200 ease-out mx-auto relative group">
+                        transition duration-200 ease-out mx-auto relative group"
+                        onClick={handlePlayingTrack}>
 
             <img 
                 src={track.albumUrl}
@@ -31,7 +68,11 @@ function Poster({track}) {
                 <div className="border-2 border-yellow-400 h-10 w-10 bg-[#15883e] flex items-center justify-center
                                 rounded-full group-hover:bg-[#1db954] flex-shrink-0">
 
-                    <BsFillPlayFill className="text-white text-xl ml-[1px]"/>
+                {
+                    track.uri === playingTrack.uri && play 
+                    ? ( <BsFillPauseFill className="text-white text-xl" /> ) 
+                    : ( <BsFillPlayFill className="text-white text-xl ml-[1px]" /> )
+                }
 
                 </div>
 
