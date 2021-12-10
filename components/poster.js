@@ -8,7 +8,7 @@ import { BsFillPauseFill, BsFillPlayFill } from "react-icons/bs";
 import { useRecoilState } from "recoil";
 
 // import playState, playingTrackState  from recoil atom
-import { playState, playingTrackState, currentSelectedTrack } from "../atoms/playerAtom"; 
+import { playState, playingTrackState } from "../atoms/playerAtom"; 
 
     // accessing props using destructuring
 function Poster({track}) {

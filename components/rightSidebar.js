@@ -12,6 +12,8 @@ import { useState, useEffect } from "react";
 import RecentlyPlayedTrack from "./recentlyPlayedTrack";
 // import Dropdown component
 import Dropdown from "./dropDown";
+// import playlist component
+import Playlist from "./playlist";
 
 function RightSidebar() {
 
@@ -23,6 +25,8 @@ function RightSidebar() {
 
     // useState() hook
     const [recentlyPLayedTracks, setRecentlyPlayedTracks] = useState([]); // recentlyPlayed will contain all the recently played tracks
+    // useState() hook 
+    const [playlists, setPlaylists] = useState([]); // playlists will be an array containing all the user playlists names
 
     // Recently played tracks...
     useEffect(
@@ -53,7 +57,39 @@ function RightSidebar() {
         }, [accessToken]
     );
 
+    // Get all the user playlists
+    useEffect(
+        () => {
+
+            if(!accessToken) {
+                return;
+            }
+
+            spotifyApi.getUserPlaylists().then((userPlaylistsFetechedFromAPI) => {
+
+                console.log(userPlaylistsFetechedFromAPI);
+
+                setPlaylists(
+                    userPlaylistsFetechedFromAPI.body.items.map((playlist) => {
+
+                        return {
+                            id: playlist.id,
+                            name: playlist.name,
+                            image: playlist.images[0].url,
+                            description: playlist.description,
+                        }
+                    })
+                )
+
+            }).catch((err) => {
+                console.log(err);
+            });
+        
+        }, [accessToken]
+    )
+
     console.log("recentlyPlayedTracks", recentlyPLayedTracks);
+    console.log("playlists", playlists);
 
     return (
 
@@ -103,14 +139,47 @@ function RightSidebar() {
                        })
                    }
                    
-
-
                </div>
 
                <button className="text-[#CECECE] bg-[#1a1a1a] bg-opacity-80 text-[0.8rem] font-bold py-3.5 px-4 rounded-xl w-full
                                     hover:bg-opacity-100 transition ease-out"> 
                    View All
                </button>
+
+           </div>
+
+           {/* user playlist names */}
+           <div className="bg-[#0d0d0d] border-2 border-[#262626] p-4 rounded-xl space-y-4">
+
+                <div className="border-2 border-green-600 flex items-center justify-between">
+
+                    <h4 className="text-white font-semibold text-sm"> User Playlists </h4>
+                    <ViewGridIcon className="text-[#686868] h-6" /> 
+
+                </div>
+
+                <div className="border-2 border-red-600 h-[15.6rem] md:h-[25rem] space-y-4 overflow-y-scroll overflow-x-hidden scrollbar-hide">
+
+                    {
+                        
+                        playlists.map((playlist) => {
+
+                        return (
+
+                            <Playlist
+                                key={playlist.id}
+                                playlist={playlist} 
+                            />
+                        )
+                        })
+                    }
+
+                </div>
+
+                <button className="text-[#CECECE] bg-[#1a1a1a] bg-opacity-80 text-[0.8rem] font-bold py-3.5 px-4 rounded-xl w-full
+                                hover:bg-opacity-100 transition ease-out"> 
+                View All
+                </button>
 
            </div>
 
