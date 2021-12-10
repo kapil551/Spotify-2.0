@@ -161,3 +161,19 @@
         - https://tailwindcss.com/docs/hover-focus-and-other-states#group-hover
 
         - If you need to style a child element when hovering over a specific parent element, add the group class to the parent element and add the group-hover: prefix to the utility on the child element.
+    
+     - Recoil --> Global State Management
+
+            - https://recoiljs.org/
+
+            - Global state management using recoil.js
+
+            - npm install recoil
+
+            - https://recoiljs.org/docs/introduction/getting-started/
+
+    - Recoil Atoms
+            
+            - https://recoiljs.org/docs/introduction/getting-started#atom
+            
+            - https://recoiljs.org/docs/basic-tutorial/atoms
