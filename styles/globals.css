@@ -29,4 +29,9 @@
     .tag {
         @apply border-2 border-[#484848] py-1.5 px-3 bg-[#282828] rounded-xl text-[#cecece] text-xs font-bold;
     }
+
+    /* custom class named genre */
+    .genre {
+      @apply bg-[#101010] text-[#cecece] border border-[#484848] rounded-xl py-2.5 px-3.5 text-[0.7rem] font-bold cursor-default;
+    }
 }

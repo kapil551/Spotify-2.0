@@ -192,56 +192,72 @@ function Body() {
             </div>
 
             {/* Genres and Tracks container */}
-            <div className="border-2 border-pink-600">
+            <div className="border-2 border-pink-600 flex gap-x-8 ml-6 min-w-full absolute md:relative">
 
                 {/* Genres Container */}
-                <div className="border-2 border-purple-500">
+                <div className="border-2 border-purple-500 max-w-[16.9rem] hidden xl:inline">
 
-                    <h2 className="border-2 border-blue-500 text-white">Genres</h2>
+                    <h2 className="border-2 border-blue-500 text-white font-bold mb-3">Genres</h2>
 
-                    <div className="border-2 border-white text-white">
+                    <div className="border-2 border-white text-white flex flex-wrap mb-3 gap-x-2 gap-y-2.5">
 
                         {/* custom class named "genre" */}
-                        <div className="border-2 border-yellow-400 genre">Classic</div>
-                        <div className="border-2 border-yellow-400 genre">House</div>
-                        <div className="border-2 border-yellow-400 genre">Minimal</div>
-                        <div className="border-2 border-yellow-400 genre">Hip-hop</div>
-                        <div className="border-2 border-yellow-400 genre">Electronic</div>
-                        <div className="border-2 border-yellow-400 genre">Chillout</div>
-                        <div className="border-2 border-yellow-400 genre">Blues</div>
-                        <div className="border-2 border-yellow-400 genre">Country</div>
-                        <div className="border-2 border-yellow-400 genre">Techno</div>
+                        <div className="genre">Classic</div>
+                        <div className="genre">House</div>
+                        <div className="genre">Minimal</div>
+                        <div className="genre">Hip-hop</div>
+                        <div className="genre">Electronic</div>
+                        <div className="genre">Chillout</div>
+                        <div className="genre">Blues</div>
+                        <div className="genre">Country</div>
+                        <div className="genre">Techno</div>
                     </div>
 
-                    <button className="border-2 border-purple-500 text-white"> All Genres </button>
+                    <button className="border-2 border-purple-500 text-[#cecece] bg-[#1a1a1a] text-[0.8rem] py-3.5 px-4
+                                    rounded-2xl w-full font-bold bg-opacity-80 hover:bg-opacity-100 
+                                    transition ease-out"> 
+                        All Genres 
+                    </button>
 
                 </div>
 
                 {/* Tracks */}
-                <div>
-                    {
-                        searchResults.length === 0
+                <div className="w-full pr-11">
+                    
+                    <h2 className="text-white font-bold mb-3">
+                        {searchResults.length === 0 ? "New Releases" : "Tracks"}
+                    </h2>
+                    
+                    <div className="border-2 border-[#262626] bg-[#0D0D0D] p-3 space-y-3 rounded-2xl h-[62.5rem] md:h-96 
+                                    w-[830px] overflow-y-scroll scrollbar-thin scrollbar-thumb-gray-600 scrollbar-thumb-rounded
+                                    hover:scrollbar-thumb-gray-500">
 
-                        ? newReleases.map((track) => {
+                        {
+                            searchResults.length === 0
 
-                            return (
-                                <Track 
-                                    key={track.id}
-                                    track={track}
-                                />
-                            )
-                        })
+                            ? newReleases.map((track) => {
 
-                        : searchResults.map((track) => {
+                                return (
+                                    <Track 
+                                        key={track.id}
+                                        track={track}
+                                    />
+                                )
+                            })
 
-                            return (
-                                <Track
-                                    key={track.id}
-                                    track={track} 
-                                />
-                            )
-                        })
-                    }
+                            : searchResults.map((track) => {
+
+                                return (
+                                    <Track
+                                        key={track.id}
+                                        track={track} 
+                                    />
+                                )
+                            })
+                        }
+
+                    </div>
+
                 </div>
 
             </div>
