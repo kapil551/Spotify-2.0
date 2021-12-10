@@ -155,3 +155,9 @@
         - https://www.npmjs.com/package/react-loader-spinner
 
         - https://mhnpd.github.io/react-loader-spinner/
+
+     - Group-hover in tailwind css   
+    
+        - https://tailwindcss.com/docs/hover-focus-and-other-states#group-hover
+
+        - If you need to style a child element when hovering over a specific parent element, add the group class to the parent element and add the group-hover: prefix to the utility on the child element.

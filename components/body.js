@@ -48,8 +48,9 @@ function Body() {
 
         () => {
 
+            // if the user is not searching then searchResults is empty
             if(!search) {
-                return;
+                return setSearchResults([]);
             }
             if(!accessToken) {
                 return;
