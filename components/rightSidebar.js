@@ -55,18 +55,18 @@ function RightSidebar() {
 
     return (
 
-        <section className="border-2 text-white">
+        <section className="border-2 text-white p-4 space-y-8 pr-8">
            
-           <div className="">
+           <div className="flex space-x-2 items-center justify-between">
 
                {/* Icons */}
-               <div className="">
+               <div className="border-2 border-[#262626] flex items-center space-x-4 h-12 py-3 px-4 rounded-full">
                    
-                   <HiOutlineShieldCheck className="" />
-                   <MdOutlineSettings className="" />
+                   <HiOutlineShieldCheck className="text-[#CCCCCC] text-xl" />
+                   <MdOutlineSettings className="text-[#CCCCCC] text-xl" />
                    
                    <div className="">
-                       <BiBell className=""/>
+                       <BiBell className="text-[#CCCCCC] text-xl"/>
                    </div>
 
                </div>
@@ -77,22 +77,22 @@ function RightSidebar() {
            </div>
 
            {/* recently played tracks */}
-           <div className="">
+           <div className="bg-[#0d0d0d] border-2 border-[#262626] p-4 rounded-xl space-y-4">
 
-               <div className="">
+               <div className="border-2 border-green-600 flex items-center justify-between">
 
-                   <h4 className=""></h4>
-                   <ViewGridIcon className="" />
+                   <h4 className="text-white font-semibold text-sm"> Recently Played </h4>
+                   <ViewGridIcon className="text-[#686868] h-6" />
 
                </div>
 
-               <div className="">
+               <div className="border-2 border-red-600 h-[15.6rem] md:h-[25rem] space-y-4 overflow-y-scroll overflow-x-hidden scrollbar-hide">
 
                    {
                        recentlyPLayedTracks.map((track, index) => {
 
                         return (
-                            
+
                             <RecentlyPlayedTrack
                                 key={index}
                                 track={track} 
@@ -105,7 +105,8 @@ function RightSidebar() {
 
                </div>
 
-               <button className=""> 
+               <button className="text-[#CECECE] bg-[#1a1a1a] bg-opacity-80 text-[0.8rem] font-bold py-3.5 px-4 rounded-xl w-full
+                                    hover:bg-opacity-100 transition ease-out"> 
                    View All
                </button>
 

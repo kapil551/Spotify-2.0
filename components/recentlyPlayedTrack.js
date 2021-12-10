@@ -2,7 +2,7 @@
         // accessing props using destructuring
 function RecentlyPlayedTrack({ track }) {
     return (
-        <div className="border-2 border-white text-white">
+        <div className="text-white">
             
             <img 
                 src={track.albumUrl}
