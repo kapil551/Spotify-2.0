@@ -17,15 +17,12 @@ function MyApp({Component, pageProps: { session, ...pageProps }, }) {
   
   return (
 
-    <RecoilRoot>
-
-      <SessionProvider session={session}>
-        <Component {...pageProps} />
+    <SessionProvider session={session}>
+        <RecoilRoot>
+          <Component {...pageProps} />
+        </RecoilRoot>
       </SessionProvider>
-
-    </RecoilRoot>
-
   )
 }
 
-export default MyApp
+export default MyApp;
