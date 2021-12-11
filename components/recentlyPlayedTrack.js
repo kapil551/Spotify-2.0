@@ -2,10 +2,10 @@
 import { useRecoilState } from "recoil";
 
 // import playState, playingTrackState  from recoil atom
-import { playState, playingTrackState, currentSelectedTrack } from "../atoms/playerAtom"; 
+import { playState, playingTrackState } from "../atoms/playerAtom"; 
 
         // accessing props using destructuring
-function RecentlyPlayedTrack({ track }) {
+function RecentlyPlayedTrack({ track, chooseTrack }) {
 
     // Recoil Atoms
     // https://recoiljs.org/docs/introduction/getting-started#atom
@@ -19,26 +19,17 @@ function RecentlyPlayedTrack({ track }) {
     // Now this "playingTrack" is stored in a global storage atom named "playingTrackState"
     // Also now i can access the contents of this global storage atom inside any other component
 
-    const handlePlayingTrack = () => {
-        
-        // console.log("handle playing track", play);
-        
-        // set the value of playing track to the track on which the user just clicked
-        setPlayingTrack(track);
-
-        console.log(track, playingTrack);
-        
-        // if the current track is the currently playing track 
-        if(track.uri === playingTrack.uri) {
-            
-            setPlay(!play);
+    const handlePlay = () => {
+        chooseTrack(track);
+    
+        if (track.uri === playingTrack.uri) {
+          setPlay(!play);
         }
-        
     };
 
     return (
-        <div className="border-2 border-blue-900 flex items-center space-x-3"
-             onClick={handlePlayingTrack}
+        <div className=" flex items-center space-x-3"
+             onClick={handlePlay}
         >
             <img 
                 src={track.albumUrl}

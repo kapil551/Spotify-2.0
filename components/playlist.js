@@ -3,7 +3,7 @@
 function Playlist({ playlist }) {
 
     return (
-        <div className="border-2 border-blue-900 flex items-center space-x-3"
+        <div className=" flex items-center space-x-3"
         >
             <img 
                 src={playlist.image}

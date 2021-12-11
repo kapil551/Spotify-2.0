@@ -7,14 +7,14 @@ import { BsFillPlayFill, BsFillPauseFill } from "react-icons/bs";
 import { useRecoilState } from "recoil";
 
 // import playState, playingTrackState  from recoil atom
-import { playState, playingTrackState, currentSelectedTrack } from "../atoms/playerAtom";
+import { playState, playingTrackState } from "../atoms/playerAtom";
 
 // import useState
 import { useState } from "react";
 
 
     // access props using destructuring 
-function Track({track}) {
+function Track({ track , chooseTrack }) {
 
     // useState
     const [hasLiked, setHasLiked] = useState(false);
@@ -31,29 +31,20 @@ function Track({track}) {
     // Now this "playingTrack" is stored in a global storage atom named "playingTrackState"
     // Also now i can access the contents of this global storage atom inside any other component
 
-    const handlePlayingTrack = () => {
-        
-        // console.log("handle playing track", play);
-        
-        // set the value of playing track to the track on which the user just clicked
-        setPlayingTrack(track);
-
-        console.log(track, playingTrack);
-        
-        // if the current track is the currently playing track 
-        if(track.uri === playingTrack.uri) {
-            
-            setPlay(!play);
+    const handlePlay = () => {
+        chooseTrack(track);
+    
+        if (track.uri === playingTrack.uri) {
+          setPlay(!play);
         }
-        
     };
 
     return (
         
-        <div className="border-2 border-purple-500 text-white flex items-center justify-between space-x-20 cursor-default 
+        <div className=" text-white flex items-center justify-between space-x-20 cursor-default 
         py-2 px-4 rounded-lg hover:bg-white/10 transition ease-out group">
            
-           <div className="border-2 border-pink-600 flex items-center">
+           <div className="flex items-center">
 
                <img 
                     src={track.albumUrl}
@@ -68,7 +59,7 @@ function Track({track}) {
 
            </div>
 
-           <div className="border-2 border-green-500 flex items-center space-x-2.5 md:ml-auto">
+           <div className=" flex items-center space-x-2.5 md:ml-auto">
 
                <div className="text-white flex space-x-1 text-sm font-semibold">
                    <ImHeadphones />
@@ -92,7 +83,7 @@ function Track({track}) {
                             <>
                             <div
                                 className="h-10 w-10 rounded-full border border-[#15883e] flex items-center justify-center absolute -right-0.5 bg-[#15883e] icon hover:scale-110"
-                                onClick={handlePlayingTrack}>
+                                onClick={handlePlay}>
                                 <BsFillPauseFill className="text-white text-xl" />
                             </div>
                             </>
@@ -102,7 +93,7 @@ function Track({track}) {
                             <>
                             <div
                                 className="h-10 w-10 rounded-full border border-white/60 flex items-center justify-center absolute -right-0.5 hover:bg-[#15883e] hover:border-[#15883e] icon hover:scale-110"
-                                onClick={handlePlayingTrack}>
+                                onClick={handlePlay}>
                                 <BsFillPlayFill className="text-white text-xl ml-[1px]" />
                             </div>
                             </>

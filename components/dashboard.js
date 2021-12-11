@@ -1,13 +1,13 @@
 import Body from "./body";
-import LeftSidebar from "./leftSidebar";
-import RightSidebar from "./rightSidebar";
+import LeftSidebar from "./LeftSidebar";
+import RightSidebar from "./RightSidebar";
 import { useState, useEffect } from "react";
 import { useSession } from "next-auth/react";
 
 import spotifyApi from "../lib/spotify";
 
 // import player component
-import Player from "./player";
+import Player from "./Player";
 
 // import playState, playingTrackState  from recoil atom
 import { playState, playingTrackState} from "../atoms/playerAtom"; 
@@ -20,7 +20,7 @@ function Dashboard() {
 
     // useSession() hook
     const { data: session, status } = useSession();
-    console.log(session, status);
+    // console.log(session, status);
 
     const accessToken = session?.accessToken;
 
@@ -50,6 +50,11 @@ function Dashboard() {
         }, []
     );
 
+    const chooseTrack = (track) => {
+
+        setPlayingTrack(track);
+    };
+
     useEffect(
         () => {
 
@@ -64,20 +69,20 @@ function Dashboard() {
 
     return (
 
-        <main className="border-2 border-blue-900 flex min-h-screen min-w-max bg-black lg:pb-24">
+        <main className="flex min-h-screen min-w-max bg-black lg:pb-24">
 
             {/* Left component -> sidebar */}
             <LeftSidebar />
 
             {/* mid component -> main body */}
-            <Body />
+            <Body chooseTrack={chooseTrack} />
             {/* right component --> right side bar */}
-            <RightSidebar />
+            <RightSidebar chooseTrack={chooseTrack} />
 
             {/* Player */}
             {
                 showPlayer && (
-                    <div className="border-2 border-white fixed bottom-0 left-0 right-0 z-50">
+                    <div className="fixed bottom-0 left-0 right-0 z-50">
                         <Player  accessToken={accessToken} trackUri={playingTrack.uri} />
                     </div>
                 )

@@ -1,9 +1,9 @@
 // import useState, useEffect
 import { useState, useEffect } from "react";
 // import the search component
-import Searchbar from "./searchbar";
+import Searchbar from "./Searchbar";
 // import the Poster component
-import Poster from "./poster";
+import Poster from "./Poster";
 
 // import useSession() hook
 import { useSession } from "next-auth/react";
@@ -11,9 +11,9 @@ import { useSession } from "next-auth/react";
 // import spotify API
 import spotifyApi from "../lib/spotify";
 // import the track component
-import Track from "./track";
+import Track from "./Track";
 
-function Body() {
+function Body({ chooseTrack }) {
 
     // useState hook
     const [search, setSearch] = useState("");
@@ -22,25 +22,24 @@ function Body() {
 
     // useSession
     const { data: session, status } = useSession();
-    console.log(session, status);
+    // console.log(session, status);
 
     // get the accessToken from the session object using optional chaining
     const accessToken = session?.accessToken;
-    console.log("accessToken", accessToken);
+    // console.log("accessToken", accessToken);
 
     // useEffect() hook -- > checking access token
     useEffect(
 
         () => {
-            console.log("checking access token");
+            // console.log("checking access token");
             // "SIDE EFFECT WORK"
 
             if(!accessToken) {
                 return;
             }
-            else {
-                spotifyApi.setAccessToken(accessToken);
-            }
+            
+            spotifyApi.setAccessToken(accessToken);
 
         }, [accessToken]
     );
@@ -126,9 +125,9 @@ function Body() {
         }, [accessToken] // --> recall this useState whenever only the value of "accessToken" updates
     );
 
-    console.log("newReleases", newReleases);
-    console.log("search:", search);
-    console.log("searchResults", searchResults);
+    // console.log("newReleases", newReleases);
+    // console.log("search:", search);
+    // console.log("searchResults", searchResults);
 
     return (
 
@@ -136,7 +135,7 @@ function Body() {
         // responsive for bigger screens.
         // https://tailwindcss.com/docs/flex-grow
         // https://tailwindcss.com/docs/breakpoints
-        <section className="border-2 border-red-500 bg-black ml-24 py-4 space-y-8 flex-grow md:max-w-6xl md:mr-2.5">
+        <section className="bg-black ml-24 py-4 space-y-8 flex-grow md:max-w-6xl md:mr-2.5">
             
             {/* Searchbar component */}
             {/* passing information using props */}
@@ -159,7 +158,7 @@ function Body() {
 
             */}
 
-            <div className="border-2 border-green-500 h-96 p-4 grid grid-cols-2 gap-x-4 gap-y-8 overflow-y-scroll scrollbar-hide lg:grid-cols-3 xl:grid-cols-4">
+            <div className=" h-96 p-4 grid grid-cols-2 gap-x-4 gap-y-8 overflow-y-scroll scrollbar-hide lg:grid-cols-3 xl:grid-cols-4">
 
                 {/* Traverse on the searchResults and show the search results to the user*/}
                 {/* If the searchResults is empty then by default show newReleases */}
@@ -173,6 +172,7 @@ function Body() {
                             <Poster 
                                 key={track.id}
                                 track={track}
+                                chooseTrack={chooseTrack}
                             />
                         )
                     })
@@ -183,6 +183,7 @@ function Body() {
                             <Poster 
                                 key={track.id}
                                 track={track}
+                                chooseTrack={chooseTrack}
                             />
                         )
                     })
@@ -192,14 +193,14 @@ function Body() {
             </div>
 
             {/* Genres and Tracks container */}
-            <div className="border-2 border-pink-600 flex gap-x-8 ml-6 min-w-full md:relative">
+            <div className="flex gap-x-8 ml-6 min-w-full md:relative">
 
                 {/* Genres Container */}
-                <div className="border-2 border-purple-500 max-w-[16.9rem] hidden xl:inline">
+                <div className="max-w-[16.9rem] hidden xl:inline">
 
-                    <h2 className="border-2 border-blue-500 text-white font-bold mb-3">Genres</h2>
+                    <h2 className=" text-white font-bold mb-3">Genres</h2>
 
-                    <div className="border-2 border-white text-white flex flex-wrap mb-3 gap-x-2 gap-y-2.5">
+                    <div className=" text-white flex flex-wrap mb-3 gap-x-2 gap-y-2.5">
 
                         {/* custom class named "genre" */}
                         <div className="genre">Classic</div>
@@ -213,7 +214,7 @@ function Body() {
                         <div className="genre">Techno</div>
                     </div>
 
-                    <button className="border-2 border-purple-500 text-[#cecece] bg-[#1a1a1a] text-[0.8rem] py-3.5 px-4
+                    <button className=" text-[#cecece] bg-[#1a1a1a] text-[0.8rem] py-3.5 px-4
                                     rounded-2xl w-full font-bold bg-opacity-80 hover:bg-opacity-100 
                                     transition ease-out"> 
                         All Genres 
@@ -241,6 +242,7 @@ function Body() {
                                     <Track 
                                         key={track.id}
                                         track={track}
+                                        chooseTrack={chooseTrack}
                                     />
                                 )
                             })
@@ -251,6 +253,7 @@ function Body() {
                                     <Track
                                         key={track.id}
                                         track={track} 
+                                        chooseTrack={chooseTrack}
                                     />
                                 )
                             })

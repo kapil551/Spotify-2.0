@@ -11,7 +11,7 @@ import SpotifyPlayer from 'react-spotify-web-playback';
     // accessing props using destructuring
 function Player({ accessToken, trackUri }) {
 
-    console.log(accessToken, trackUri);
+    // console.log(accessToken, trackUri);
 
     // Recoil Atoms
     // https://recoiljs.org/docs/introduction/getting-started#atom

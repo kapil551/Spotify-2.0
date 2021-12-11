@@ -9,17 +9,17 @@ import { useSession } from "next-auth/react";
 import { useState, useEffect } from "react";
 
 // import RecentlyPlayedTrack component
-import RecentlyPlayedTrack from "./recentlyPlayedTrack";
+import RecentlyPlayedTrack from "./RecentlyPlayedTrack";
 // import Dropdown component
-import Dropdown from "./dropdown";
+import Dropdown from "./Dropdown";
 // import playlist component
-import Playlist from "./playlist";
+import Playlist from "./Playlist";
 
-function RightSidebar() {
+function RightSidebar({ chooseTrack }) {
 
     // useSession() hook
     const { data: session, status } = useSession();
-    console.log(session, status);
+    // console.log(session, status);
 
     const accessToken = session?.accessToken;
 
@@ -67,7 +67,7 @@ function RightSidebar() {
 
             spotifyApi.getUserPlaylists().then((userPlaylistsFetechedFromAPI) => {
 
-                console.log(userPlaylistsFetechedFromAPI);
+                // console.log(userPlaylistsFetechedFromAPI);
 
                 setPlaylists(
                     userPlaylistsFetechedFromAPI.body.items.map((playlist) => {
@@ -88,12 +88,12 @@ function RightSidebar() {
         }, [accessToken]
     )
 
-    console.log("recentlyPlayedTracks", recentlyPLayedTracks);
-    console.log("playlists", playlists);
+    // console.log("recentlyPlayedTracks", recentlyPLayedTracks);
+    // console.log("playlists", playlists);
 
     return (
 
-        <section className="border-2 text-white p-4 space-y-8 pr-8">
+        <section className=" text-white p-4 space-y-8 pr-8">
            
            <div className="flex space-x-2 items-center justify-between">
 
@@ -117,14 +117,14 @@ function RightSidebar() {
            {/* recently played tracks */}
            <div className="bg-[#0d0d0d] border-2 border-[#262626] p-4 rounded-xl space-y-4">
 
-               <div className="border-2 border-green-600 flex items-center justify-between">
+               <div className="flex items-center justify-between">
 
                    <h4 className="text-white font-semibold text-sm"> Recently Played </h4>
                    <ViewGridIcon className="text-[#686868] h-6" />
 
                </div>
 
-               <div className="border-2 border-red-600 h-[15.6rem] md:h-[25rem] space-y-4 overflow-y-scroll overflow-x-hidden scrollbar-hide">
+               <div className=" h-[15.6rem] md:h-[25rem] space-y-4 overflow-y-scroll overflow-x-hidden scrollbar-hide">
 
                    {
                        recentlyPLayedTracks.map((track, index) => {
@@ -134,6 +134,7 @@ function RightSidebar() {
                             <RecentlyPlayedTrack
                                 key={index}
                                 track={track} 
+                                chooseTrack={chooseTrack}
                             />
                         )
                        })
@@ -151,14 +152,14 @@ function RightSidebar() {
            {/* user playlist names */}
            <div className="bg-[#0d0d0d] border-2 border-[#262626] p-4 rounded-xl space-y-4">
 
-                <div className="border-2 border-green-600 flex items-center justify-between">
+                <div className="flex items-center justify-between">
 
                     <h4 className="text-white font-semibold text-sm"> User Playlists </h4>
                     <ViewGridIcon className="text-[#686868] h-6" /> 
 
                 </div>
 
-                <div className="border-2 border-red-600 h-[15.6rem] md:h-[25rem] space-y-4 overflow-y-scroll overflow-x-hidden scrollbar-hide">
+                <div className="h-[15.6rem] md:h-[25rem] space-y-4 overflow-y-scroll overflow-x-hidden scrollbar-hide">
 
                     {
                         
