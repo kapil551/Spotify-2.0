@@ -1,4 +1,4 @@
-import Body from "./body";
+import Body from "./Body";
 import LeftSidebar from "./LeftSidebar";
 import RightSidebar from "./RightSidebar";
 import { useState, useEffect } from "react";

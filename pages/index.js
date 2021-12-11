@@ -3,9 +3,9 @@ import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 
 // import the dashboard component
-import Dashboard from '../components/dashboard';
+import Dashboard from '../components/Dashboard';
 // import the loader component
-import LoaderAnimation from '../components/loaderAnimation';
+import LoaderAnimation from '../components/LoaderAnimation';
 
 export default function Home() {
 
