@@ -10,9 +10,28 @@
 
 2. Project Overview:
 
+    - It is a fully functional and responsive clone of Spotify with features like search, play, pause, and change songs.
+    - It has a complete search functinality with data being fetched from Spotify API.
+    - Added User authentication using NextAuth.js, which provides complete authentication for next.js
+    - Implemented many concepts of react components, hooks, lifecycle methods, props, and added global state management using recoil.
+    - Added a custom player with controls like play, pause, and adjust the volume of songs.
+
     - One Limitation of spotify API is that it only works for spotify users having premium memberships.
 
-3. Imp Links:
+3. Project Screenshots:
+
+- Large Screen View
+![](project-screenshot1.png)
+
+- Medium Screen View
+![](project-screenshot3.png)
+
+- Small Screen View
+![](project-screenshot2.png)
+
+
+
+4. Imp Links:
 
     - https://tailwindcss.com/docs/guides/nextjs
 
@@ -112,14 +131,8 @@
 
     - What is .env.local file in react/next.js projects?
 
-        - 
-    
     - useSession() hook in NextAuth:
 
-        -
-
-        - 
-    
     - creating custom login/signin page in NextAuth:
 
         - https://next-auth.js.org/configuration/pages
